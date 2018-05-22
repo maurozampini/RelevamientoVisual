@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Cosas lindas/feas</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item *ngFor="let item of list | async">
+    <div *ngIf='item.tipo == "cosaLinda"'>
+      <p>
+        Cosa linda: {{item.usuario}}
+      </p>
+      <img class="img-responsive" src="{{item.url}}" />
+    </div>
+    <div *ngIf='item.tipo == "cosaFea"'>
+      <p>
+        Cosa fea: {{item.usuario}}
+      </p>
+      <img class="img-responsive" src="{{item.url}}" />
+    </div>
+  </ion-item>
+</ion-content>

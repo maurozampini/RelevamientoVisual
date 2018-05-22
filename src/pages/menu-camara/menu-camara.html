@@ -1,43 +1,23 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Mis fotos
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <ion-item>
-    <ion-row>
-      <ion-col width-50>
-        <button ion-button color="secondary" type="button" full round large (click)="takePhotoLindas()">
-                    <ion-icon name="md-camera">Cosas Lindas</ion-icon>
-                </button>
+<button class="buttons" (click)="takePhotoLindas()">
+  <ion-icon name="md-camera"> Foto cosa linda</ion-icon>
+</button>
 
-        <button ion-button color="primary" type="button" full round large (click)="takePhoto()">
-          <ion-icon name="md-camera">Cosas feas</ion-icon>
-                  </button>
-      </ion-col>
-      <ion-col width-50>
-        <button ion-button color="primary" type="button" full round large (click)="selectPhotoLindas()">
-                    <ion-icon name="md-image">Seleccione cosas lindas</ion-icon>
-                </button>
+<button class="buttons" (click)="takePhotoFeas()">
+  <ion-icon name="md-camera"> Foto cosa fea</ion-icon>
+</button>
 
-        <button ion-button color="secondary" type="button" full round large (click)="selectPhoto()">
-                  <ion-icon name="md-image">Seleccion cosas feas </ion-icon>
-              </button>
-      </ion-col>
-    </ion-row>
-  </ion-item>
+<button class="buttons" (click)="selectPhotoLindas()">
+  <ion-icon name="md-image"> Seleccione cosa linda</ion-icon>
+</button>
 
-    <!-- <img class="img-responsive" src="{{ myPhotoURL }}" />
-    foto{{ myPhotoURL }} -->
-    <ion-item *ngFor="let item of list | async">
-      <div *ngIf = 'item.usuario == [username]'> 
-          <div *ngIf = 'item.tipo == "cosaLinda"'>
-            Cosa Linda: 
-            <img class="img-responsive" src="{{item.url}}" />
-          </div>
-      </div>
-     </ion-item>
+<button class="buttons" (click)="selectPhotoFeas()">
+  <ion-icon name="md-image"> Seleccione cosa fea</ion-icon>
+</button>
 
-</ion-content>
+<button class="botonF6" (click)="confirmarCerrarSesion()">
+  <ion-icon name="log-out"> </ion-icon>
+</button>
+
+<button class="botonF5" (click)="cosasLindasFeas()">
+  <ion-icon name="md-image"> </ion-icon>
+</button>

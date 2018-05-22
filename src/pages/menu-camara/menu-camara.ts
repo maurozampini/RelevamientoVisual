@@ -1,11 +1,11 @@
 import { Component , NgZone} from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import { NavController,IonicPage, NavParams,ActionSheetController, ToastController, Platform, LoadingController, Loading } from 'ionic-angular';
-import { File } from '@ionic-native/file';
-import { Transfer, TransferObject } from '@ionic-native/transfer';
-import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
+import { NavController,IonicPage, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import firebase from 'firebase';
+import { CosasLindasFeasPage } from '../cosas-lindas-feas/cosas-lindas-feas';
+import { LoginPage } from '../login/login';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 
@@ -30,7 +30,9 @@ export class MenuCamaraPage {
                public spinner:LoadingController,
                db:AngularFireDatabase,
                public zone: NgZone,
-                private Camera: Camera) {
+                private Camera: Camera,
+                private authAf: AngularFireAuth,
+                public alertCtrl: AlertController) {
 
                   this.username = navParams.get("usuario");
                   this.myPhotosRefLindas = firebase.storage().ref('/CosasLindas/');
@@ -159,11 +161,40 @@ export class MenuCamaraPage {
   {
     let loader= this.spinner.create({
 
-      duration: 3000000,
+      duration: 30000,
       content:"Subiendo su Foto"
     })
     return loader;
   
   }
 
+  cosasLindasFeas(){
+    this.navCtrl.push(CosasLindasFeasPage);
+  }
+
+  confirmarCerrarSesion() {
+    let alert = this.alertCtrl.create({
+      title: 'Cerrar sesión',
+      message: '¿Desea cerrar la sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar clickeado');
+          }
+        },
+        {
+          text: 'Confirmar',
+          handler: () => {
+            console.log('Confirmar clickeado');
+            this.authAf.auth.signOut();
+            this.navCtrl.setRoot(LoginPage);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+  
 }

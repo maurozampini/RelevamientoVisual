@@ -19,6 +19,7 @@ export class LoginPage {
 username:string;
 password:string;
 tipoUser:string;
+splash = true;
   constructor(public spiner:LoadingController,
               public navCtrl: NavController,
               public navParams: NavParams,
@@ -105,9 +106,9 @@ Registrarse(){
   this.navCtrl.push(RegisterPage);
 
 }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+ionViewDidLoad() {
+  setTimeout(() => this.splash = false, 4000);
+}
 
   MiSpiner():Loading
   {

@@ -25,16 +25,17 @@ import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { PreloaderProvider } from '../providers/preloader/preloader';
+import { CosasLindasFeasPage } from '../pages/cosas-lindas-feas/cosas-lindas-feas';
 
 //import { EventProvider } from "../providers/event/event";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBHraX9FO-Y5VSh10PTwmSGN7OZaXzOb2I",
-  authDomain: "apprelevamiento.firebaseapp.com",
-  databaseURL: "https://apprelevamiento.firebaseio.com",
-  projectId: "apprelevamiento",
-  storageBucket: "apprelevamiento.appspot.com",
-  messagingSenderId: "1020210814159"
+  apiKey: "AIzaSyCarL-rnPaF2Jn_0qDnV884BOGcPe2rE-s",
+  authDomain: "relevamientovisual-mauro.firebaseapp.com",
+  databaseURL: "https://relevamientovisual-mauro.firebaseio.com",
+  projectId: "relevamientovisual-mauro",
+  storageBucket: "relevamientovisual-mauro.appspot.com",
+  messagingSenderId: "743873533106"
 };
 
 @NgModule({
@@ -46,7 +47,8 @@ export const firebaseConfig = {
     TabsPage,
     LoginPage,
     RegisterPage,
-    MenuCamaraPage
+    MenuCamaraPage,
+    CosasLindasFeasPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ export const firebaseConfig = {
     TabsPage,
     LoginPage,
     RegisterPage,
-    MenuCamaraPage
+    MenuCamaraPage,
+    CosasLindasFeasPage
   ],
   providers: [
     Camera,
